@@ -1,0 +1,33 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('asets', function (Blueprint $table) {
+            $table->id();
+            $table->string('kode_aset', 100)->nullable();
+            $table->string('nama_aset', 100)->nullable();
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('location_id')->nullable();
+            $table->string('kondisi', 100)->nullable();
+            $table->integer('jumlah');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('asets');
+    }
+};
