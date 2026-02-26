@@ -12,19 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('mutasi_asets', function (Blueprint $table) {
-            $table->id();
-            // aset_id
-            $table->unsignedBigInteger('aset_id')->nullable();
-            // from_location_id
-            $table->unsignedBigInteger('from_location_id')->nullable();
-            // to_location_id
-            $table->unsignedBigInteger('to_location_id')->nullable();
-            $table->date('tanggal_mutasi')->nullable();
-            //keterangan
-            $table->text('keterangan')->nullable();
-            //user_id
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->timestamps();
+        $table->id();
+        $table->foreignId('aset_id')->constrained('asets')->onDelete('cascade');
+        $table->foreignId('lokasi_asal_id')->constrained('locations')->onDelete('cascade');
+        $table->foreignId('lokasi_tujuan_id')->constrained('locations')->onDelete('cascade');
+        $table->date('tanggal_mutasi');
+        $table->text('keterangan')->nullable();
+        $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+        $table->timestamps();
+        
         });
     }
 
