@@ -20,7 +20,7 @@ class SocialiteController extends Controller
     public function redirect()
     {
         return Socialite::driver('google')
-            ->with(['prompt' => 'select_account'])
+            ->with(['prompt' => 'select_account'])->stateless()
             ->redirect();
     }
 
