@@ -60,7 +60,7 @@ We welcome contributions! Please read our [contributing guidelines](CONTRIBUTING
 ## 📞 Contact
 
 For any inquiries, please reach out to:
-- **Email:** example@example.com
+- **Email:** misadugam@gmail.com
 - **GitHub:** [msaaa26](https://github.com/msaaa26)
 
 ## 📄 License
